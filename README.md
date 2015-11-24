@@ -2,6 +2,12 @@
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hangman`. To experiment with that code, run `bin/console` for an interactive prompt.
 
+[![Code Climate](https://codeclimate.com/github/andela-ydaniju/hangman/badges/gpa.svg)](https://codeclimate.com/github/andela-ydaniju/hangman)
+
+[![Test Coverage](https://codeclimate.com/github/andela-ydaniju/hangman/badges/coverage.svg)](https://codeclimate.com/github/andela-ydaniju/hangman/coverage)
+
+[![Issue Count](https://codeclimate.com/github/andela-ydaniju/hangman/badges/issue_count.svg)](https://codeclimate.com/github/andela-ydaniju/hangman)
+
 TODO: Delete this and the text above, and describe your gem
 
 ## Installation

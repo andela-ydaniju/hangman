@@ -1,3 +1,5 @@
+require 'coveralls'
+Coveralls.wear!
 require 'spec_helper'
 # Test for Choice class
 module Hangman

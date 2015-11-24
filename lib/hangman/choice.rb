@@ -4,6 +4,7 @@ module Hangman
   class Choice
     def initialize
       @dictionary = File.readlines('5desk.txt')
+      # @dictionary = File.readlines('../../5desk.txt')
       @word = ''
     end
 
@@ -13,9 +14,9 @@ module Hangman
     end
 
     def show_word
-      @word = pick_word
-      '_ ' * @word.length
+      word = pick_word
+      '_ ' * word.length
     end
   end
 end
-p Hangman::Choice.new.show_word
+# p Hangman::Choice.new.pick_word
