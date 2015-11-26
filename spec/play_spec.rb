@@ -5,15 +5,14 @@ require 'spec_helper'
 module Hangman
   hangman_play = Hangman::Play.new
   describe Play do
-    context 'guess' do
-      before do
-        $stdin = StringIO.new('a')
-      end
+    before do
+      $stdin = StringIO.new('a')
+    end
 
-      after do
-        $stdin = STDIN
-      end
-
+    after do
+      $stdin = STDIN
+    end
+    context 'enter_guess' do
       it 'returns a string' do
         expect(hangman_play.enter_guess.class).to eql String
       end
@@ -24,6 +23,13 @@ module Hangman
 
       it 'cannot be an empty string' do
         expect(hangman_play.enter_guess.length).not_to eql 0
+      end
+    end
+
+    context 'check_guess' do
+      # word = Hangman::Choice.new.pick_word
+      it "increment pushes a guess to 'right_guess' or 'wrong_guess' array" do
+        expect(hangman_play.check_guess.length).to eql 1
       end
     end
   end
