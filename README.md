@@ -4,7 +4,7 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 [![Code Climate](https://codeclimate.com/github/andela-ydaniju/hangman/badges/gpa.svg)](https://codeclimate.com/github/andela-ydaniju/hangman)
 
-https://travis-ci.org/andela-ydaniju/hangman.svg?branch=master
+[![Build Status](https://travis-ci.org/andela-ydaniju/hangman.svg?branch=master)](https://travis-ci.org/andela-ydaniju/hangman)
 
 [![Coverage Status](https://coveralls.io/repos/andela-ydaniju/hangman/badge.svg?branch=master&service=github)](https://coveralls.io/github/andela-ydaniju/hangman?branch=master
 
