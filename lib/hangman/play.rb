@@ -11,6 +11,16 @@ module Hangman
       @wrong_count = 0
     end
 
+    def check_guess(enter_guess)
+      word = Hangman::Choice.new.pick_word
+      if word.include? enter_guess
+        @right_guess << enter_guess
+      else
+        @wrong_count += 1
+        @wrong_guess << enter_guess
+      end
+    end
+
     def enter_guess
       $stdout.puts 'please  enter a letter'
       string = '3'
@@ -18,17 +28,6 @@ module Hangman
         string = $stdin.gets.chomp.downcase
       end
       string
-    end
-
-    def check_guess
-      guess = enter_guess
-      word = Hangman::Choice.new.pick_word
-      if word.include? guess
-        @right_guess << guess
-      else
-        @wrong_count += 1
-        @wrong_guess << guess
-      end
     end
   end
 end

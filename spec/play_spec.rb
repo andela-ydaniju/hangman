@@ -28,8 +28,9 @@ module Hangman
 
     context 'check_guess' do
       # word = Hangman::Choice.new.pick_word
-      it "increment pushes a guess to 'right_guess' or 'wrong_guess' array" do
-        expect(hangman_play.check_guess.length).to eql 1
+      it "pushes a guess to 'right_guess' or 'wrong_guess' array" do
+        expect(hangman_play.check_guess(hangman_play.enter_guess).length)
+          .to eql 1
       end
     end
   end
