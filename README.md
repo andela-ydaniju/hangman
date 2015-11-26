@@ -4,7 +4,9 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 [![Code Climate](https://codeclimate.com/github/andela-ydaniju/hangman/badges/gpa.svg)](https://codeclimate.com/github/andela-ydaniju/hangman)
 
-[![Test Coverage](https://codeclimate.com/github/andela-ydaniju/hangman/badges/coverage.svg)](https://codeclimate.com/github/andela-ydaniju/hangman/coverage)
+https://travis-ci.org/andela-ydaniju/hangman.svg?branch=master
+
+[![Coverage Status](https://coveralls.io/repos/andela-ydaniju/hangman/badge.svg?branch=master&service=github)](https://coveralls.io/github/andela-ydaniju/hangman?branch=master
 
 [![Issue Count](https://codeclimate.com/github/andela-ydaniju/hangman/badges/issue_count.svg)](https://codeclimate.com/github/andela-ydaniju/hangman)
 
