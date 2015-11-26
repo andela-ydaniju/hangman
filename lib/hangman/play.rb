@@ -1,4 +1,6 @@
 require_relative 'choice.rb'
+require 'stringio'
+
 # Hangman module
 module Hangman
   # This class follows gameplay logic
@@ -13,7 +15,7 @@ module Hangman
       $stdout.puts 'please  enter a letter'
       string = '3'
       while string.to_i != 0 || string.length != 1
-        string = gets.chomp.downcase
+        string = $stdin.gets.chomp.downcase
       end
       string
     end
@@ -30,7 +32,7 @@ module Hangman
           # gsub(guess) {at the index where guess == char}
           puts show_word.gsub!(guess, letter) if guess == word[i]
           guess << @right_guess
-          i += 1
+          i = i + 1
         end
       else
         # Let the whole thing remain like that and then add the letter to
@@ -42,5 +44,5 @@ module Hangman
     end
   end
 end
-Hangman::Play.new.enter_guess
-Hangman::Play.new.check_guess.inspect
+p Hangman::Play.new.enter_guess
+
