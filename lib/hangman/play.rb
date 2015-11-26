@@ -9,6 +9,7 @@ module Hangman
       @right_guess = []
       @wrong_guess = []
       @wrong_count = 0
+      @total_lives = 7
     end
 
     def check_guess(enter_guess)
