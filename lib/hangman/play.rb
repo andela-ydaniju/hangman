@@ -44,5 +44,3 @@ module Hangman
     end
   end
 end
-p Hangman::Play.new.enter_guess
-
