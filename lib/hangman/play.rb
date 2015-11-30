@@ -1,29 +1,21 @@
-require_relative 'choice.rb'
 require 'stringio'
 
 # Hangman module
 module Hangman
   # This class follows gameplay logic
   class Play
-    def initialize
-      @right_guess = []
-      @wrong_guess = []
-      @wrong_count = 0
-      @total_lives = 7
-    end
-
-    def check_guess(enter_guess)
-      word = Hangman::Choice.new.pick_word
-      if word.include? enter_guess
-        @right_guess << enter_guess
-      else
-        @wrong_count += 1
-        @wrong_guess << enter_guess
+    def show_word(picked_word, enter_guess)
+      # picked_word = Hangman::Choice.new.pick_word
+      placeholder = ''
+      picked_word.chars do |char|
+        placeholder += (enter_guess.include? char) ? char : '*'
       end
+      placeholder
     end
 
     def enter_guess
-      $stdout.puts 'please  enter a letter'
+      $stdout.puts 'Please  enter a letter'
+      puts "\n"
       string = '3'
       while string.to_i != 0 || string.length != 1
         string = $stdin.gets.chomp.downcase

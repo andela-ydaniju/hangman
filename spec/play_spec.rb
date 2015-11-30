@@ -33,5 +33,17 @@ module Hangman
           .to eql 1
       end
     end
+
+    context 'show_word' do
+      picked_word = Hangman::Choice.new.pick_word
+      showed_word = Play.new.show_word(picked_word, 'a')
+      it 'is a string' do
+        expect(showed_word.class).to be String
+      end
+
+      it "returns '*' in place of a letter in a word" do
+        expect(showed_word.include? '*').to eql true
+      end
+    end
   end
 end
