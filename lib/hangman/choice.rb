@@ -3,7 +3,7 @@ module Hangman
   # This class serves words from file and tracks their display
   class Choice
     def initialize
-      @dictionary = File.readlines('5desk.txt')
+      @dictionary = File.readlines('lib/5desk.rb')
     end
 
     def pick_word

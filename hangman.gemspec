@@ -4,14 +4,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'hangman/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'hangman-y'
+  spec.name          = 'hangman_y'
   spec.version       = Hangman::VERSION
   spec.authors       = ['andela-ydaniju']
   spec.email         = ['yusuf.daniju@andela.com']
 
   spec.summary       = %q{Hangman game allows you guess the letters of a word. You have seven chances!}
   spec.description   = %q{Hangman game allows you guess the letters of a word. You have seven chances!}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/andela-ydaniju/hangman"
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
@@ -25,9 +25,8 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
-  spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.executables << 'hangman'
+  spec.bindir        = 'bin'
+  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'bundler', '~> 1.10'
