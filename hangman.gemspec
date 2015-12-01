@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'hangman/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'hangman'
+  spec.name          = 'hangman-y'
   spec.version       = Hangman::VERSION
   spec.authors       = ['andela-ydaniju']
   spec.email         = ['yusuf.daniju@andela.com']
