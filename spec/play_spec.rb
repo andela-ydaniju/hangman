@@ -26,14 +26,6 @@ module Hangman
       end
     end
 
-    context 'check_guess' do
-      # word = Hangman::Choice.new.pick_word
-      it "pushes a guess to 'right_guess' or 'wrong_guess' array" do
-        expect(hangman_play.check_guess(hangman_play.enter_guess).length)
-          .to eql 1
-      end
-    end
-
     context 'show_word' do
       picked_word = Hangman::Choice.new.pick_word
       showed_word = Play.new.show_word(picked_word, 'a')
@@ -43,6 +35,10 @@ module Hangman
 
       it "returns '*' in place of a letter in a word" do
         expect(showed_word.include? '*').to eql true
+      end
+
+      it "has same length with 'pick_word'" do
+        expect(showed_word.length).to eql picked_word.length
       end
     end
   end

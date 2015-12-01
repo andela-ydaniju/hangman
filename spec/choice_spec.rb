@@ -16,6 +16,18 @@ module Hangman
       it 'cannot be a sring with length < 5' do
         expect(picked_word.length).not_to eql 4
       end
+
+      it 'cannot be a sring with length < 5' do
+        expect(picked_word.length).not_to eql 3
+      end
+
+      it 'cannot be a sring with length < 5' do
+        expect(picked_word.length).not_to eql 2
+      end
+
+      it 'cannot be a sring with length < 5' do
+        expect(picked_word.length).not_to eql 1
+      end
     end
   end
 end

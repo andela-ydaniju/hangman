@@ -8,13 +8,13 @@ module Hangman
       @total_lives = 7
       @play = Hangman::Play.new
       @word = Hangman::Choice.new.pick_word
-      @placeholder = @play.show_word(@word, @right_guess)
+      @display = @play.show_word(@word, @right_guess)
     end
 
     def start!
       puts 'Which word is:' + @play.show_word(@word, '') + '?'
       while @wrong_count < @total_lives
-        print "You have #{@total_lives - @wrong_count} chances left."
+        print "You have #{@total_lives - @wrong_count} chances left. "
         char = @play.enter_guess
         if @word.include? char
           right_entry(char)
@@ -40,7 +40,7 @@ module Hangman
       puts "Sorry! The word doesn't contain '#{char}'"
       @wrong_count += 1
       if @wrong_count == @total_lives
-        abort('YOU GOT HANGED!')
+        abort("It's #{@word} HANG!!!")
       else
         puts 'Try another: ' + @play.show_word(@word, @right_guess)
       end

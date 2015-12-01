@@ -5,12 +5,11 @@ module Hangman
   # This class follows gameplay logic
   class Play
     def show_word(picked_word, enter_guess)
-      # picked_word = Hangman::Choice.new.pick_word
-      placeholder = ''
+      display = ''
       picked_word.chars do |char|
-        placeholder += (enter_guess.include? char) ? char : '*'
+        display += (enter_guess.include? char) ? char : '*'
       end
-      placeholder
+      display
     end
 
     def enter_guess
