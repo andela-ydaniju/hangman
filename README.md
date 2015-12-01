@@ -1,16 +1,8 @@
 # Hangman
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hangman`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Code Climate](https://codeclimate.com/github/andela-ydaniju/hangman/badges/gpa.svg)](https://codeclimate.com/github/andela-ydaniju/hangman) [![Build Status](https://travis-ci.org/andela-ydaniju/hangman.svg?branch=master)](https://travis-ci.org/andela-ydaniju/hangman) [![Coverage Status](https://coveralls.io/github/andela-ydaniju/hangman?branch=master  [![Issue Count](https://codeclimate.com/github/andela-ydaniju/hangman/badges/issue_count.svg)](https://codeclimate.com/github/andela-ydaniju/hangman)
 
-[![Code Climate](https://codeclimate.com/github/andela-ydaniju/hangman/badges/gpa.svg)](https://codeclimate.com/github/andela-ydaniju/hangman)
-
-[![Build Status](https://travis-ci.org/andela-ydaniju/hangman.svg?branch=master)](https://travis-ci.org/andela-ydaniju/hangman)
-
-[![Coverage Status](https://coveralls.io/repos/andela-ydaniju/hangman/badge.svg?branch=master&service=github)](https://coveralls.io/github/andela-ydaniju/hangman?branch=master
-
-[![Issue Count](https://codeclimate.com/github/andela-ydaniju/hangman/badges/issue_count.svg)](https://codeclimate.com/github/andela-ydaniju/hangman)
-
-TODO: Delete this and the text above, and describe your gem
+Hangman is a paper and pencil guessing game for two or more players. One player thinks of a word, phrase or sentence and the other tries to guess it by suggesting letters or numbers, within a certain number of guesses.
 
 ## Installation
 
@@ -26,11 +18,11 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install hangman
+    $ gem install hangman_y
 
 ## Usage
 
-TODO: Write usage instructions here
+After Installation, Run the "hangman" gem in your Command Line Interface. After the welcome screen has been displayed, proceed by entering the desired option "start", "load", or "quit".
 
 ## Development
 
