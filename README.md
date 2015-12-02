@@ -9,7 +9,7 @@ Hangman is a paper and pencil guessing game for two or more players. One player 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'hangman'
+gem 'hangman_y'
 ```
 
 And then execute:
@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-After Installation, Run the "hangman" gem in your Command Line Interface. After the welcome screen has been displayed, proceed by entering the desired option "start", "load", or "quit".
+After Installation, Run the "hangman_y" gem in your Command Line Interface. After the welcome screen has been displayed, proceed by entering the desired option "start", "load", or "quit".
 
 ## Development
 
@@ -31,6 +31,8 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
+
+Hangman is currently in its first edition and is open-source. Feel free to contribute, clone or Fork
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hangman. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 

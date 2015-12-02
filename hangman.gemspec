@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['yusuf.daniju@andela.com']
 
   spec.summary       = %q{Hangman game allows you guess the letters of a word. You have seven chances!}
-  spec.description   = %q{Hangman game allows you guess the letters of a word. You have seven chances!}
+  # spec.description   = %q{Hangman game allows you guess the letters of a word. You have seven chances!}
   spec.homepage      = "https://github.com/andela-ydaniju/hangman"
   spec.license       = 'MIT'
 
