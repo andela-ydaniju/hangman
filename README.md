@@ -1,6 +1,6 @@
 # Hangman
 
-[![Code Climate](https://codeclimate.com/github/andela-ydaniju/hangman/badges/gpa.svg)](https://codeclimate.com/github/andela-ydaniju/hangman) [![Build Status](https://travis-ci.org/andela-ydaniju/hangman.svg?branch=master)](https://travis-ci.org/andela-ydaniju/hangman) [![Coverage Status](https://coveralls.io/github/andela-ydaniju/hangman?branch=master  [![Issue Count](https://codeclimate.com/github/andela-ydaniju/hangman/badges/issue_count.svg)](https://codeclimate.com/github/andela-ydaniju/hangman)
+[![Code Climate](https://codeclimate.com/github/andela-ydaniju/hangman/badges/gpa.svg)](https://codeclimate.com/github/andela-ydaniju/hangman) [![Build Status](https://travis-ci.org/andela-ydaniju/hangman.svg?branch=master)](https://travis-ci.org/andela-ydaniju/hangman) [![Coverage Status](https://coveralls.io/repos/andela-ydaniju/hangman/badge.svg?branch=master&service=github)](https://coveralls.io/github/andela-ydaniju/hangman?branch=master)  [![Issue Count](https://codeclimate.com/github/andela-ydaniju/hangman/badges/issue_count.svg)](https://codeclimate.com/github/andela-ydaniju/hangman)
 
 Hangman is a paper and pencil guessing game for two or more players. One player thinks of a word, phrase or sentence and the other tries to guess it by suggesting letters or numbers, within a certain number of guesses.
 
@@ -34,7 +34,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 Hangman is currently in its first edition and is open-source. Feel free to contribute, clone or Fork
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hangman. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/andela-ydaniju/hangman. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
