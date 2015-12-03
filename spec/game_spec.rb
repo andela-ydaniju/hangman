@@ -42,8 +42,7 @@ module Hangman
       end
 
       it 'it aborts once total_lives == wrong_count' do
-        game.instance_variable_set(:@wrong_count, 1)
-        game.instance_variable_set(:@total_lives, 1)
+        game.instance_variable_set(:@wrong_count, 7)
         game.instance_variable_set(:@word, 'greet')
         result = game.wrong_entry('a')
         expect(result).to eq nil
@@ -52,9 +51,45 @@ module Hangman
 
     context '#right_entry' do
       it 'concatenates new char with right_guess' do
-        game.instance_variable_set(:@right_guess, 'amebo')
-        game.right_entry('w')
-        expect(game.right_guess).to eql 'amebow'
+        game.instance_variable_set(:@word, 'amebo')
+        game.instance_variable_set(:@right_guess, 'amb')
+        game.right_entry('e')
+        expect(game.right_guess).to eql 'ambe'
+      end
+
+      it 'returns same word if right letter is reenntered' do
+        game.instance_variable_set(:@word, 'amebo')
+        game.instance_variable_set(:@right_guess, 'ambo')
+        game.right_entry('o')
+        expect(game.right_guess).to eql 'ambo'
+      end
+
+      it 'declare winner if guesses complete' do
+        game.instance_variable_set(:@word, 'yusuf')
+        game.instance_variable_set(:@right_guess, 'usuf')
+        game.right_entry('y')
+        expect(game.right_guess).to eql 'usufy'
+      end
+
+      it 'concatenates a char with right_guess' do
+        game.instance_variable_set(:@word, 'yusuf')
+        game.instance_variable_set(:@right_guess, 'yus')
+        game.right_entry('u')
+        expect(game.right_guess).to eql 'yusu'
+      end
+
+      it 'returns same word if correct letter is reenntered' do
+        game.instance_variable_set(:@word, 'yusuf')
+        game.instance_variable_set(:@right_guess, 'yus')
+        game.right_entry('s')
+        expect(game.right_guess).to eql 'yus'
+      end
+
+      it 'declare winner if guesses completed' do
+        game.instance_variable_set(:@word, 'amebo')
+        game.instance_variable_set(:@right_guess, 'ambo')
+        game.right_entry('e')
+        expect(game.right_guess).to eql 'amboe'
       end
     end
   end
