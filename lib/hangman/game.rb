@@ -2,6 +2,7 @@
 module Hangman
   # This class starts and ends game
   class Game
+    attr_accessor :right_guess, :wrong_count, :total_lives, :play, :word, :display
     def initialize
       @right_guess = ''
       @wrong_count = 0
