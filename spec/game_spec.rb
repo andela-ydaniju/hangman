@@ -13,6 +13,39 @@ module Hangman
     # after do
     #   $stdin = STDIN
     # end
+    context '#initialize' do
+      it 'is an instance of Hangman::Game' do
+        expect(game.class).to eq(Hangman::Game)
+      end
+
+      it 'has right_guess method' do
+        expect(game.methods.include? :right_guess).to be true
+      end
+
+      it 'has wrong_count method' do
+        expect(game.methods.include? :wrong_count).to be true
+      end
+
+      it 'has total_lives method' do
+        expect(game.methods.include? :total_lives).to be true
+      end
+
+      it 'has play method' do
+        expect(game.methods.include? :play).to be true
+      end
+
+      it 'has word method' do
+        expect(game.methods.include? :word).to be true
+      end
+
+      it 'has display method' do
+        expect(game.methods.include? :display).to be true
+      end
+
+      it 'has follow_follow method' do
+        expect(game.methods.include? :follow_follow).to be false
+      end
+    end
 
     context '#method_calls' do
       it 'receives right method calls' do
