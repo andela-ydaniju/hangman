@@ -97,32 +97,18 @@ module Hangman
         expect(game.right_guess).to eql 'ambo'
       end
 
-      it 'declare winner if guesses complete' do
-        game.instance_variable_set(:@word, 'yusuf')
-        game.instance_variable_set(:@right_guess, 'usuf')
-        game.right_entry('y')
-        expect(game.right_guess).to eql 'usufy'
-      end
-
       it 'concatenates a char with right_guess' do
-        game.instance_variable_set(:@word, 'yusuf')
-        game.instance_variable_set(:@right_guess, 'yus')
-        game.right_entry('u')
-        expect(game.right_guess).to eql 'yusu'
+        game.instance_variable_set(:@word, 'bag')
+        game.instance_variable_set(:@right_guess,'b')
+        game.right_entry('a')
+        expect(game.right_guess).to eql 'ba'
       end
 
       it 'returns same word if correct letter is reenntered' do
-        game.instance_variable_set(:@word, 'yusuf')
-        game.instance_variable_set(:@right_guess, 'yus')
-        game.right_entry('s')
-        expect(game.right_guess).to eql 'yus'
-      end
-
-      it 'declare winner if guesses completed' do
-        game.instance_variable_set(:@word, 'amebo')
-        game.instance_variable_set(:@right_guess, 'ambo')
-        game.right_entry('e')
-        expect(game.right_guess).to eql 'amboe'
+        game.instance_variable_set(:@word, 'bag')
+        game.instance_variable_set(:@right_guess, 'ba')
+        game.right_entry('a')
+        expect(game.right_guess).to eql 'ba'
       end
     end
   end
