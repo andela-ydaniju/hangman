@@ -12,7 +12,7 @@ module Hangman
 
     def pick_word
       loop do
-        choice = dictionary.sample.chomp.downcase
+        choice = @@word_array.sample.chomp.downcase
         break(choice) if choice.length > 5 && choice.length < 12
       end
     end
