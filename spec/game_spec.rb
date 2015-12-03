@@ -30,17 +30,31 @@ module Hangman
       end
     end
 
-    context 'wrong_entry' do
+    context '#wrong_entry' do
       it 'cannot play wrong more than 7 times' do
         expect(game).to receive(:wrong_entry).at_most(7).times
       end
 
-      it 'it reports loss ' do
-        allow(play).to receive(:show_word).and_return('amaka')
-        allow(game).to receive(:right_guess).and_return('m')
-        allow(game).to receive(:wrong_count).and_return(3)
-        allow(game).to receive(:right_guess).and_return('m')
-        expect(game.wrong_entry('q')).to eql nil
+      it 'it increments wrong_count by 1' do
+        game.instance_variable_set(:@wrong_count, 1)
+        game.wrong_entry('a')
+        expect(game.wrong_count).to eql 2
+      end
+
+      it 'it aborts once total_lives == wrong_count' do
+        game.instance_variable_set(:@wrong_count, 1)
+        game.instance_variable_set(:@total_lives, 1)
+        game.instance_variable_set(:@word, 'greet')
+        result = game.wrong_entry('a')
+        expect(result).to eq nil
+      end
+    end
+
+    context '#right_entry' do
+      it 'concatenates new char with right_guess' do
+        game.instance_variable_set(:@right_guess, 'amebo')
+        game.right_entry('w')
+        expect(game.right_guess).to eql 'amebow'
       end
     end
   end
