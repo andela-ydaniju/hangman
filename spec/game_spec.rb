@@ -111,5 +111,19 @@ module Hangman
         expect(game.right_guess).to eql 'ba'
       end
     end
+
+    before do
+      $stdin = StringIO.new('start')
+    end
+    after do
+      $stdin = STDIN
+    end
+
+    # context '#pre_start' do
+    #   it 'prints welcome message' do
+    #     allow(pre_start).to receive(:entry) { 'start' }
+    #     expect(game.pre_start.nil).to be true
+    #   end
+    # end
   end
 end
