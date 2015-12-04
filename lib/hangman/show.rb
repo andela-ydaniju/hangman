@@ -34,6 +34,7 @@ module Hangman
           |     /|\
           |     / \
           |
+          |
         --+------------
         GAME-OVER!!!! :(
       HEREDOC

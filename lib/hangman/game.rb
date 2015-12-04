@@ -16,7 +16,7 @@ module Hangman
     end
 
     def pre_start
-      @show.begin
+      puts @show.begin
       @entry = gets.chomp.downcase
       if @entry == 'start'
         start!
