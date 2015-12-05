@@ -6,13 +6,13 @@ module Hangman
   describe Game do
     let(:play) { Hangman::Play.new }
     let(:game) { Hangman::Game.new }
-    # before do
-    #   $stdin = StringIO.new('a')
-    # end
+    before do
+      $stdin = StringIO.new('a')
+    end
 
-    # after do
-    #   $stdin = STDIN
-    # end
+    after do
+      $stdin = STDIN
+    end
     context '#initialize' do
       it 'is an instance of Hangman::Game' do
         expect(game.class).to eq(Hangman::Game)
@@ -111,5 +111,45 @@ module Hangman
         expect(game.right_guess).to eql 'ba'
       end
     end
+
+    before do
+      $stdin = StringIO.new('start')
+    end
+    after do
+      $stdin = STDIN
+    end
+
+    context '#pre_start' do
+      it 'prints welcome message' do
+        allow(game).to receive(:gets).and_return('start')
+        allow(game).to receive(:start!).and_return('starters')
+        expect(game.pre_start).to eql 'starters'
+      end
+
+      it 'prints welcome message' do
+        allow(game).to receive(:gets).and_return('ma')
+        allow(game).to receive(:exit).and_return('quitted')
+        expect(game.pre_start).to eql 'quitted'
+      end
+    end
+
+    # context '#start!' do
+    #   let(:guess) { play.enter_guess }
+    #   it 'returns right entry' do
+    #     game.instance_variable_set(:@wrong_count, 1)
+    #     game.instance_variable_set(:@total_lives, 7)
+    #     game.instance_variable_set(:@word, 'games')
+    #     game.instance_variable_set(:@right_guess, 'gm')
+    #     allow($stdin).to receive(:gets).and_return('a')
+    #     allow(game).to receive(:right_entry).and_return('gma')
+    #     expect(game.start!).to eql "gma"
+    #   end
+
+      # it 'prints welcome message' do
+      #   allow(game).to receive().and_return('ma')
+      #   allow(game).to receive(:exit).and_return('quitted')
+      #   expect(game.pre_start).to eql 'quitted'
+      # end
+    # end
   end
 end
