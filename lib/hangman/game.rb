@@ -1,3 +1,4 @@
+require 'pry'
 require 'stringio'
 # Hangman module
 module Hangman
