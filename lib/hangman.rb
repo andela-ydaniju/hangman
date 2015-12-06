@@ -5,4 +5,5 @@ module Hangman
   require_relative './hangman/play.rb'
   require_relative './hangman/game.rb'
   require_relative './hangman/show.rb'
+  require_relative './hangman/save.rb'
 end

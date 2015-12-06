@@ -39,5 +39,12 @@ module Hangman
         GAME-OVER!!!! :(
       HEREDOC
     end
+
+    def continue
+      <<-HEREDOC
+        DO YOU LIKE TO CONTINUE
+        PRESS 'Y' TO CONTINUE
+      HEREDOC
+    end
   end
 end
