@@ -1,3 +1,4 @@
+require 'yaml'
 module Hangman
 # Save and load class
   class Save
@@ -5,6 +6,7 @@ module Hangman
 
     def initialize(game)
       @game = game
+      @play = Hangman::Play.new
     end
 
     def save_game(obj = nil) #, isTest = false)
@@ -23,23 +25,18 @@ module Hangman
     end
 
     def save_data(obj = nil)
-      # require "pry"; binding.pry
       play_data = [obj.word, obj.right_guess, obj.wrong_count, obj.total_lives]
       serialized_data = YAML.dump(play_data)
-      data = File.open('gamelog.txt', 'w') { |line| line.write(serialized_data) }
+      data = File.open('gamelog.yml', 'w') { |line| line.write(serialized_data) }
       if data
         puts 'Game successfully saved'
         exit
       end
     end
 
-    def load_data(obj = nil)
-      deserialize = YAML.load(obj)
-      @word = deserialize[0].to_s
-      @right_guess = deserialize[1].to_s
-      @wrong_count = deserialize[2].to_i
-      @total_lives = deserialize[3].to_i
-      show_word(@word, @right_guess)
+    def load_data
+      read_file = File.read('gamelog.yml')
+      YAML.load(read_file)
     end
   end
 end
