@@ -14,7 +14,7 @@ gem 'hangman_y'
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-After Installation, Run the "hangman_y" gem in your Command Line Interface. After the welcome screen has been displayed, proceed by entering the desired option "start", "load", or "quit".
+After Installation, Run the "hangman_y" gem in your Command Line Interface. Download [5desk.txt](http://scrapmaker.com/) and put it in the directory of play. Enter ```hangman```. After the welcome screen has been displayed, proceed by entering the desired option "start", "load", or "quit".
 
 ## Development
 
