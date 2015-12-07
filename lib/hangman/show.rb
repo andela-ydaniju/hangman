@@ -5,6 +5,7 @@ module Hangman
       <<-HEREDOC
         WELCOME TO HANGMAN
         Type 'start' to Start a new game
+        or   'load' to Load an existing game
       HEREDOC
     end
 

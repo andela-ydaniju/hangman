@@ -26,12 +26,14 @@ module Hangman
       # require "pry"; binding.pry
       play_data = [obj.word, obj.right_guess, obj.wrong_count, obj.total_lives]
       serialized_data = YAML.dump(play_data)
-      # File.open('gamelog.txt', 'w') { |line| line.write(serialized_data) }
-      puts 'Game successfully saved'
-      serialized_data
+      data = File.open('gamelog.txt', 'w') { |line| line.write(serialized_data) }
+      if data
+        puts 'Game successfully saved'
+        exit
+      end
     end
 
-    def load_data(obj=nil)
+    def load_data(obj = nil)
       deserialize = YAML.load(obj)
       @word = deserialize[0].to_s
       @right_guess = deserialize[1].to_s

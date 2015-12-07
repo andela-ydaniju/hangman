@@ -47,7 +47,7 @@ module Hangman
       puts @show.save_or_quit?
       options = gets.strip.downcase
       case options
-      when 's' then save_data(start!)
+      when 's' then save_data
       when 'c' then save_data(start!)
       else
         exit
