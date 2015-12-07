@@ -5,6 +5,7 @@ module Hangman
       <<-HEREDOC
         WELCOME TO HANGMAN
         Type 'start' to Start a new game
+        or   'load' to Load an existing game
       HEREDOC
     end
 
@@ -26,6 +27,14 @@ module Hangman
       HEREDOC
     end
 
+    def save_or_quit?
+      <<-HEREDOC
+      PRESS 's' TO SAVE
+            'c' TO CONTINUE
+            'q' TO QUIT
+      HEREDOC
+    end
+
     def hang
       <<-HEREDOC
           +------+
@@ -39,5 +48,19 @@ module Hangman
         GAME-OVER!!!! :(
       HEREDOC
     end
+
+    def continue
+      <<-HEREDOC
+        DO YOU LIKE TO CONTINUE
+        PRESS 'Y' TO CONTINUE
+      HEREDOC
+    end
+
+    def end
+      <<-HEREDOC
+        GOODBYE!!
+      HEREDOC
+    end
+
   end
 end

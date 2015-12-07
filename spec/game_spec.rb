@@ -6,6 +6,7 @@ module Hangman
   describe Game do
     let(:play) { Hangman::Play.new }
     let(:game) { Hangman::Game.new }
+    let(:save) { Hangman::Save.new(game) }
     before do
       $stdin = StringIO.new('a')
     end
