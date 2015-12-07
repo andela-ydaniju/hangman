@@ -55,5 +55,12 @@ module Hangman
         PRESS 'Y' TO CONTINUE
       HEREDOC
     end
+
+    def end
+      <<-HEREDOC
+        GOODBYE!!
+      HEREDOC
+    end
+
   end
 end

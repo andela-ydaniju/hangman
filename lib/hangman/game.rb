@@ -24,13 +24,14 @@ module Hangman
       when 'start' then start!
       when 'load' then play_loaded
       else
+        sleep 3
         exit
       end
     end
 
     def start!
       puts 'Which word is:' + @play.show_word(@word, '') + '?'
-      condition_for_play 
+      condition_for_play
     end
 
     def condition_for_play
@@ -52,9 +53,11 @@ module Hangman
       options = gets.strip.downcase
       case options
       when 's' then @save.save_data(self)
-      when 'c' then save_data(start!)
+      when 'c'
+        puts @play.show_word(@word, @right_guess)
+        save_data(condition_for_play)
       else
-        exit
+        abort(@show.end)
       end
     end
 
