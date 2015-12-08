@@ -23,7 +23,7 @@ module Hangman
 
   context 'load_data' do
     it 'returns array' do
-      expect(save.load_data.class).to be Array
+      expect(save.load_data[3]).to eq 7
     end
   end
 end
