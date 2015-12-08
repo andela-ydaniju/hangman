@@ -5,7 +5,7 @@ module Hangman
   # This class starts and ends game
   class Game
     attr_accessor :right_guess, :wrong_count, :show, :total_lives, :play, :word,
-    :display, :save, :entry
+                  :display, :save, :entry
     def initialize
       @right_guess = ''
       @wrong_count = 0
@@ -34,6 +34,28 @@ module Hangman
       condition_for_play
     end
 
+    def play_loaded
+      play_data = @save.load_data
+      @word = play_data[0].to_s
+      @right_guess = play_data[1].to_s
+      @wrong_count = play_data[2].to_i
+      @total_lives = play_data[3].to_i
+      puts @play.show_word(@word, @right_guess)
+      condition_for_play
+    end
+
+    def full_game
+      puts @show.continue
+      play_on = gets.downcase.strip
+      return unless play_on != 'y'
+      @word = Hangman::Choice.new.pick_word
+      @wrong_count = 0
+      @total_lives = 7
+      @right_guess = ''
+      puts @play.show_word(@word, @right_guess)
+      condition_for_play
+    end
+
     def condition_for_play
       while @wrong_count < @total_lives
         print "You have #{@total_lives - @wrong_count} chances left. "
@@ -58,29 +80,6 @@ module Hangman
         save_data(condition_for_play)
       else
         abort(@show.end)
-      end
-    end
-
-    def play_loaded
-      play_data = @save.load_data
-      @word = play_data[0].to_s
-      @right_guess = play_data[1].to_s
-      @wrong_count = play_data[2].to_i
-      @total_lives = play_data[3].to_i
-      puts @play.show_word(@word, @right_guess)
-      condition_for_play
-    end
-
-    def full_game
-      puts @show.continue
-      play_on = gets.downcase.strip
-      if play_on == 'y'
-        @word = Hangman::Choice.new.pick_word
-        @wrong_count = 0
-        @total_lives = 7
-        @right_guess = ''
-        puts @play.show_word(@word, @right_guess)
-        condition_for_play
       end
     end
 
