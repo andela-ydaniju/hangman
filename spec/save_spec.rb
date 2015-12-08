@@ -20,10 +20,4 @@ module Hangman
       allow(game).to receive(:wrong_entry).and_return(true)
     end
   end
-
-  context 'load_data' do
-    it 'returns array' do
-      expect(save.load_data[3]).to eq 7
-    end
-  end
 end
