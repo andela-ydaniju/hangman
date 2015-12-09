@@ -123,7 +123,7 @@ module Hangman
     context '#pre_start' do
       it 'prints welcome message' do
         allow(game).to receive(:gets).and_return('start')
-        allow(game).to receive(:start!).and_return('starters')
+        allow(game).to receive(:start).and_return('starters')
         expect(game.pre_start).to eql 'starters'
       end
 

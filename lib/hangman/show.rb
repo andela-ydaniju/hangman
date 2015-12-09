@@ -62,5 +62,11 @@ module Hangman
       HEREDOC
     end
 
+    def wrong_load
+      <<-HEREDOC
+        NO SAVED GAME.
+        Run 'hangman' and select 'start'to begin
+      HEREDOC
+    end
   end
 end

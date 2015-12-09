@@ -4,10 +4,10 @@ require 'stringio'
 module Hangman
   # This class follows gameplay logic
   class Play
-    def show_word(picked_word, enter_guess)
+    def show_word(picked_word, guess)
       display = ''
       picked_word.chars do |char|
-        display += (enter_guess.include? char) ? char : '*'
+        display += (guess.include? char) ? char : '*'
       end
       display
     end

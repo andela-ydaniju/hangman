@@ -21,7 +21,7 @@ module Hangman
       puts @show.begin
       @entry = gets.strip.downcase
       case @entry
-      when 'start' then start!
+      when 'start' then start
       when 'load' then play_loaded
       else
         sleep 3
@@ -29,13 +29,14 @@ module Hangman
       end
     end
 
-    def start!
+    def start
       puts 'Which word is:' + @play.show_word(@word, '') + '?'
       condition_for_play
     end
 
     def play_loaded
       play_data = @save.load_data
+      abort @show.wrong_load unless play_data
       @word = play_data[0].to_s
       @right_guess = play_data[1].to_s
       @wrong_count = play_data[2].to_i
@@ -47,13 +48,14 @@ module Hangman
     def full_game
       puts @show.continue
       play_on = gets.downcase.strip
-      return unless play_on != 'y'
-      @word = Hangman::Choice.new.pick_word
-      @wrong_count = 0
-      @total_lives = 7
-      @right_guess = ''
-      puts @play.show_word(@word, @right_guess)
-      condition_for_play
+      if play_on == 'y'
+        @word = Hangman::Choice.new.pick_word
+        @wrong_count = 0
+        @total_lives = 7
+        @right_guess = ''
+        puts @play.show_word(@word, @right_guess)
+        condition_for_play
+      end
     end
 
     def condition_for_play
@@ -77,9 +79,9 @@ module Hangman
       when 's' then @save.save_data(self)
       when 'c'
         puts @play.show_word(@word, @right_guess)
-        save_data(condition_for_play)
+        @save.save_data(condition_for_play)
       else
-        abort(@show.end)
+        abort @show.end
       end
     end
 
@@ -91,7 +93,7 @@ module Hangman
         @right_guess += char
         puts @show.show_right_entry + @play.show_word(@word, @right_guess)
       end
-      abort(@show.show_win) unless
+      winner_decision unless
         @play.show_word(@word, @right_guess).include? '*'
     end
 
@@ -104,6 +106,13 @@ module Hangman
       else
         puts @show.show_wrong_entry + @play.show_word(@word, @right_guess)
       end
+    end
+
+    def winner_decision
+      puts @show.show_win
+      puts "\n"
+      sleep 2
+      full_game
     end
   end
 end
