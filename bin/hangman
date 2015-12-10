@@ -4,6 +4,7 @@ if ARGV[0] == '--help'
   puts Hangman::Show.new.help_message
 elsif ARGV.length == 2 && ARGV[0] == '-f'
   Hangman::Choice.new.file_path = ARGV[1]
+  Hangman::Game.new.pre_start
 else
   ARGV.empty?
   Hangman::Game.new.pre_start

@@ -71,7 +71,9 @@ module Hangman
 
     def partial_help_message
       <<-HEREDOC
-        hangman - Initialize a the game
+        hangman:  Initialize a the game
+        hangman --help: Shows you this message
+        hangman -f <file_path> : Initializes game with another dictionary
 
         Reply prompt with:
         s, start - starts a new game on initialization
