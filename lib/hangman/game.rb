@@ -22,10 +22,11 @@ module Hangman
       @entry = gets.strip.downcase
       case @entry
       when 'start' then start
+      when 's' then start
       when 'load' then play_loaded
+      when 'l' then play_loaded
       else
-        sleep 3
-        exit
+        abort @show.help_message
       end
     end
 
@@ -61,9 +62,8 @@ module Hangman
       while @wrong_count < @total_lives
         print "You have #{@total_lives - @wrong_count} chances left. "
         char = @play.enter_guess
-        if char.match(/[^a-zA-Z0-9_]/)
-          save_options
-        elsif @word.include? char
+        save_options if char.match(/[^a-zA-Z0-9_]/)
+        if @word.include? char
           right_entry(char)
         else
           wrong_entry(char)
