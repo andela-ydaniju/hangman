@@ -75,7 +75,7 @@ module Hangman
       puts @show.save_or_quit?
       options = gets.strip.downcase
       case options
-      when 's' then @save.save_data(self)
+      when 'x' then @save.save_data(self)
       when 'c'
         puts @play.show_word(@word, @right_guess)
         @save.save_data(condition_for_play)

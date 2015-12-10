@@ -15,8 +15,8 @@ module Hangman
     def enter_guess
       entry = ''
       loop do
-        $stdout.puts 'Please  enter a letter'
-        entry = $stdin.gets.chomp.downcase
+        puts 'Please  enter a letter'
+        entry = gets.chomp.downcase
         break if entry.match(/^\D*$/) && entry.length == 1
       end
       entry
