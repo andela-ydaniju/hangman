@@ -13,13 +13,13 @@ module Hangman
     end
 
     def enter_guess
-      $stdout.puts 'Please  enter a letter'
-      puts "\n"
-      string = '3'
-      while string.to_i != 0 || string.length != 1
-        string = $stdin.gets.chomp.downcase
+      entry = ''
+      loop do
+        $stdout.puts 'Please  enter a letter'
+        entry = $stdin.gets.chomp.downcase
+        break if entry.match(/^\D*$/) && entry.length == 1
       end
-      string
+      entry
     end
   end
 end

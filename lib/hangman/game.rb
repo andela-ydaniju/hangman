@@ -48,14 +48,13 @@ module Hangman
     def full_game
       puts @show.continue
       play_on = gets.downcase.strip
-      if play_on == 'y'
-        @word = Hangman::Choice.new.pick_word
-        @wrong_count = 0
-        @total_lives = 7
-        @right_guess = ''
-        puts @play.show_word(@word, @right_guess)
-        condition_for_play
-      end
+      abort @show.end if play_on != 'y'
+      @word = Hangman::Choice.new.pick_word
+      @wrong_count = 0
+      @total_lives = 7
+      @right_guess = ''
+      puts @play.show_word(@word, @right_guess)
+      condition_for_play
     end
 
     def condition_for_play
