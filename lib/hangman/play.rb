@@ -4,22 +4,22 @@ require 'stringio'
 module Hangman
   # This class follows gameplay logic
   class Play
-    def show_word(picked_word, enter_guess)
+    def show_word(picked_word, guess)
       display = ''
       picked_word.chars do |char|
-        display += (enter_guess.include? char) ? char : '*'
+        display += (guess.include? char) ? char : '*'
       end
       display
     end
 
     def enter_guess
-      $stdout.puts 'Please  enter a letter'
-      puts "\n"
-      string = '3'
-      while string.to_i != 0 || string.length != 1
-        string = $stdin.gets.chomp.downcase
+      entry = ''
+      loop do
+        puts 'Please  enter a letter'
+        entry = gets.chomp.downcase
+        break if entry.match(/^\D*$/) && entry.length == 1
       end
-      string
+      entry
     end
   end
 end

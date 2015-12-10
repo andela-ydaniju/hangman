@@ -4,8 +4,8 @@ module Hangman
     def begin
       <<-HEREDOC
         WELCOME TO HANGMAN
-        Type 'start' to Start a new game
-        or   'load' to Load an existing game
+        Type 's or start' to Start a new game,
+             'l or load' to Load an existing game,
       HEREDOC
     end
 
@@ -27,9 +27,9 @@ module Hangman
       HEREDOC
     end
 
-    def save_or_quit?
+    def save_or_quit
       <<-HEREDOC
-      PRESS 's' TO SAVE
+      PRESS 'x' TO SAVE
             'c' TO CONTINUE
             'q' TO QUIT
       HEREDOC
@@ -62,5 +62,34 @@ module Hangman
       HEREDOC
     end
 
+    def wrong_load
+      <<-HEREDOC
+        NO SAVED GAME.
+        Run 'hangman' and select 'start'to begin
+      HEREDOC
+    end
+
+    def partial_help_message
+      <<-HEREDOC
+        hangman:  Initialize a the game
+        hangman --help: Shows you this message
+        hangman -f <file_path> : Initializes game with another dictionary
+
+        Reply prompt with:
+        s, start - starts a new game on initialization
+        l, load - loads an existing game on initialization
+      HEREDOC
+    end
+
+    def help_message
+      puts partial_help_message
+      <<-HEREDOC
+        During play
+        Any entry except numbers and alphabets - save options
+        s - save
+        c - continue
+        q - quit
+      HEREDOC
+    end
   end
 end

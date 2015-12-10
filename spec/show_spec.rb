@@ -74,5 +74,35 @@ module Hangman
         expect(show.end.include? 'GOODBYE').to be true
       end
     end
+
+    context '#save_or_quit' do
+      it 'prints save_or_quit message' do
+        expect(show.save_or_quit.class).to be String
+      end
+
+      it 'should include SAVE' do
+        expect(show.save_or_quit.include? 'SAVE').to be true
+      end
+    end
+
+    context '#wrong_load' do
+      it 'prints wrong_load message' do
+        expect(show.wrong_load.class).to be String
+      end
+
+      it "should include 'NO SAVED GAME'" do
+        expect(show.wrong_load.include? 'NO SAVED GAME').to be true
+      end
+    end
+
+    context '#help_message' do
+      it 'prints help message' do
+        expect(show.help_message.class).to be String
+      end
+
+      it 'should include save' do
+        expect(show.help_message.include? 'q - quit').to be true
+      end
+    end
   end
 end

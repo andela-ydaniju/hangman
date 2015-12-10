@@ -6,14 +6,9 @@ module Hangman
   describe Game do
     let(:play) { Hangman::Play.new }
     let(:game) { Hangman::Game.new }
+    let(:show) { Hangman::Show.new }
     let(:save) { Hangman::Save.new(game) }
-    before do
-      $stdin = StringIO.new('a')
-    end
 
-    after do
-      $stdin = STDIN
-    end
     context '#initialize' do
       it 'is an instance of Hangman::Game' do
         expect(game.class).to eq(Hangman::Game)
@@ -56,7 +51,7 @@ module Hangman
         allow(game).to receive(:wrong_entry).and_return(true)
         allow(game).to receive(:total_lives).and_return(true)
         allow(game).to receive(:display).and_return(true)
-        allow(game).to receive(:start!).and_return('wibble')
+        allow(game).to receive(:start).and_return('wibble')
       end
       it 'rejects wrong method calls' do
         allow(game).to receive(:yusuf).and_return(false)
@@ -64,22 +59,49 @@ module Hangman
       end
     end
 
-    context '#wrong_entry' do
-      it 'cannot play wrong more than 7 times' do
-        expect(game).to receive(:wrong_entry).at_most(7).times
+    context '#full_game' do
+      it 'prints goodbye when play_on != y' do
+        allow(game).to receive(:gets).and_return('n')
+        allow(game).to receive(:full_game).and_return('GOODBYE')
+        expect(game.full_game).to eq 'GOODBYE'
       end
+      it 'resets right_guess if play_on == y' do
+        allow(game).to receive(:gets).and_return('y')
+        allow(game).to receive(:full_game).and_return('play_on')
+        expect(game.right_guess).to eq ''
+      end
+    end
 
-      it 'it increments wrong_count by 1' do
+    context '#condition_for_play' do
+      it 'plays on until wrong_count equals total_lives' do
+        expect(game.wrong_count).not_to eql game.total_lives
+      end
+      it 'returns either right or wrong entry methods' do
+        allow(play).to receive(:enter_guess).and_return('a')
+        allow(game).to receive(:word).and_return('pad')
+        allow(game).to receive(:condition_for_play).and_return('cool')
+        expect(game.condition_for_play).to eq 'cool'
+      end
+    end
+
+    context '#wrong_entry' do
+      it 'increments wrong_count by 1' do
         game.instance_variable_set(:@wrong_count, 1)
-        game.wrong_entry('a')
+        game.instance_variable_set(:@word, 'amebo')
+        game.wrong_entry('q')
         expect(game.wrong_count).to eql 2
       end
 
-      it 'it aborts once total_lives == wrong_count' do
+      it 'it reverts to full game if total_lives exhausted' do
         game.instance_variable_set(:@wrong_count, 7)
+        game.instance_variable_set(:@total_lives, 7)
         game.instance_variable_set(:@word, 'greet')
-        result = game.wrong_entry('a')
-        expect(result).to eq nil
+        allow(game).to receive(:full_game).and_return('wibble')
+        expect(game.wrong_entry('a')).to eq nil
+      end
+
+      it 'cannot play wrong more than 7 times' do
+        expect(game).to receive(:wrong_entry).at_most(7).times
       end
     end
 
@@ -100,7 +122,7 @@ module Hangman
 
       it 'concatenates a char with right_guess' do
         game.instance_variable_set(:@word, 'bag')
-        game.instance_variable_set(:@right_guess,'b')
+        game.instance_variable_set(:@right_guess, 'b')
         game.right_entry('a')
         expect(game.right_guess).to eql 'ba'
       end
@@ -113,44 +135,31 @@ module Hangman
       end
     end
 
-    before do
-      $stdin = StringIO.new('start')
-    end
-    after do
-      $stdin = STDIN
-    end
-
     context '#pre_start' do
-      it 'prints welcome message' do
+      it 'game starts if s or start' do
         allow(game).to receive(:gets).and_return('start')
-        allow(game).to receive(:start!).and_return('starters')
+        allow(game).to receive(:start).and_return('starters')
         expect(game.pre_start).to eql 'starters'
       end
 
-      it 'prints welcome message' do
-        allow(game).to receive(:gets).and_return('ma')
-        allow(game).to receive(:exit).and_return('quitted')
-        expect(game.pre_start).to eql 'quitted'
+      it 'game load if l or load' do
+        allow(game).to receive(:gets).and_return('l')
+        allow(game).to receive(:play_loaded).and_return('success')
+        expect(game.pre_start).to eql 'success'
+      end
+
+      it 'show help message if response is wrong' do
+        allow(game).to receive(:gets).and_return('k')
+        allow(game).to receive(:abort).and_return(show.help_message)
+        expect(game.pre_start.include? 'help').to be false
       end
     end
 
-    # context '#start!' do
-    #   let(:guess) { play.enter_guess }
-    #   it 'returns right entry' do
-    #     game.instance_variable_set(:@wrong_count, 1)
-    #     game.instance_variable_set(:@total_lives, 7)
-    #     game.instance_variable_set(:@word, 'games')
-    #     game.instance_variable_set(:@right_guess, 'gm')
-    #     allow($stdin).to receive(:gets).and_return('a')
-    #     allow(game).to receive(:right_entry).and_return('gma')
-    #     expect(game.start!).to eql "gma"
-    #   end
-
-      # it 'prints welcome message' do
-      #   allow(game).to receive().and_return('ma')
-      #   allow(game).to receive(:exit).and_return('quitted')
-      #   expect(game.pre_start).to eql 'quitted'
-      # end
-    # end
+    context '#winner_decision' do
+      it 'show help message if response is wrong' do
+        allow(game).to receive(:full_game).and_return('game on!')
+        expect(game.winner_decision).to eq 'game on!'
+      end
+    end
   end
 end

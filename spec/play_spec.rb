@@ -5,23 +5,26 @@ require 'spec_helper'
 module Hangman
   hangman_play = Hangman::Play.new
   describe Play do
-    before do
-      $stdin = StringIO.new('a')
-    end
+    # before do
+    #   $stdin = StringIO.new('a')
+    # end
 
-    after do
-      $stdin = STDIN
-    end
+    # after do
+    #   $stdin = STDIN
+    # end
     context 'enter_guess' do
       it 'returns a string' do
+        allow(hangman_play).to receive(:gets).and_return('a')
         expect(hangman_play.enter_guess.class).to eql String
       end
 
       it "should return 'a'" do
+        allow(hangman_play).to receive(:gets).and_return('a')
         expect(hangman_play.enter_guess).to eql 'a'
       end
 
       it 'cannot be an empty string' do
+        allow(hangman_play).to receive(:gets).and_return('a')
         expect(hangman_play.enter_guess.length).not_to eql 0
       end
     end

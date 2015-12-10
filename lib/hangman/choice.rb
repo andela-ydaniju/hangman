@@ -2,17 +2,19 @@
 module Hangman
   # This class serves words from file and tracks their display
   class Choice
+    attr_accessor :file_path
     def initialize
-      read_file('5desk.txt')
+      @file_path ||= '5desk.txt'
+      @word_list = read_file(@file_path)
     end
 
     def read_file(dictionary)
-      @@word_list ||= File.readlines(dictionary)
+      File.readlines(dictionary)
     end
 
     def pick_word
       loop do
-        choice = @@word_list.sample.chomp.downcase
+        choice = @word_list.sample.chomp.downcase
         break(choice) if choice.length > 5 && choice.length < 12
       end
     end
