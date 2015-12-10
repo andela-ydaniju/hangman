@@ -72,7 +72,7 @@ module Hangman
     end
 
     def save_options
-      puts @show.save_or_quit?
+      puts @show.save_or_quit
       options = gets.strip.downcase
       case options
       when 'x' then @save.save_data(self)

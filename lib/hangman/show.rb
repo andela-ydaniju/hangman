@@ -27,7 +27,7 @@ module Hangman
       HEREDOC
     end
 
-    def save_or_quit?
+    def save_or_quit
       <<-HEREDOC
       PRESS 'x' TO SAVE
             'c' TO CONTINUE
