@@ -1,7 +1,6 @@
 require 'coveralls'
 Coveralls.wear!
 require 'spec_helper'
-# Test for Save class.
 module Hangman
   game = Game.new
   save = Save.new(game)

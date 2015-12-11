@@ -1,5 +1,4 @@
 module Hangman
-  # hangman game displays
   class Show
     def begin
       <<-HEREDOC

@@ -1,9 +1,6 @@
 require 'coveralls'
 Coveralls.wear!
 require 'spec_helper'
-require 'fakefs/spec_helpers'
-
-# Test for Show class
 module Hangman
   show = Hangman::Show.new
   describe Show do

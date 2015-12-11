@@ -1,8 +1,4 @@
-require 'pry'
-require 'stringio'
-# Hangman module
 module Hangman
-  # This class starts and ends game
   class Game
     attr_accessor :right_guess, :wrong_count, :show, :total_lives, :play, :word,
                   :display, :save, :entry
@@ -20,6 +16,7 @@ module Hangman
     def pre_start
       puts @show.begin
       @entry = gets.strip.downcase
+
       case @entry
       when 'start' then start
       when 's' then start
@@ -32,6 +29,7 @@ module Hangman
 
     def start
       puts 'Which word is:' + @play.show_word(@word, '') + '?'
+
       condition_for_play
     end
 
@@ -43,6 +41,7 @@ module Hangman
       @wrong_count = play_data[2].to_i
       @total_lives = play_data[3].to_i
       puts @play.show_word(@word, @right_guess)
+
       condition_for_play
     end
 
@@ -55,6 +54,7 @@ module Hangman
       @total_lives = 7
       @right_guess = ''
       puts @play.show_word(@word, @right_guess)
+
       condition_for_play
     end
 
@@ -64,9 +64,9 @@ module Hangman
         char = @play.enter_guess
         save_options if char.match(/[^a-zA-Z0-9_]/)
         if @word.include? char
-          right_entry(char)
+          right_entry char
         else
-          wrong_entry(char)
+          wrong_entry char
         end
       end
     end
@@ -74,11 +74,12 @@ module Hangman
     def save_options
       puts @show.save_or_quit
       options = gets.strip.downcase
+
       case options
       when 'x' then @save.save_data(self)
       when 'c'
         puts @play.show_word(@word, @right_guess)
-        @save.save_data(condition_for_play)
+        @save.save_data condition_for_play
       else
         abort @show.end
       end
@@ -111,6 +112,7 @@ module Hangman
       puts @show.show_win
       puts "\n"
       sleep 2
+
       full_game
     end
   end

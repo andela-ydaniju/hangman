@@ -1,7 +1,6 @@
 require 'coveralls'
 Coveralls.wear!
 require 'spec_helper'
-# Test for Game class
 module Hangman
   describe Game do
     let(:play) { Hangman::Play.new }
@@ -14,20 +13,20 @@ module Hangman
         expect(game.class).to eq(Hangman::Game)
       end
 
-      it 'has right_guess method' do
-        expect(game.methods.include? :right_guess).to be true
+      it 'has right_guess attribute' do
+        expect(game.right_guess).to eq ''
       end
 
-      it 'has wrong_count method' do
-        expect(game.methods.include? :wrong_count).to be true
+      it 'has wrong_count attribute' do
+        expect(game.wrong_count).to eq 0
       end
 
-      it 'has total_lives method' do
-        expect(game.methods.include? :total_lives).to be true
+      it 'has total_lives attribute' do
+        expect(game.total_lives).to eq 7
       end
 
       it 'has play method' do
-        expect(game.methods.include? :play).to be true
+        expect(game.play.class).to eq Hangman::Play
       end
 
       it 'has word method' do
@@ -35,27 +34,11 @@ module Hangman
       end
 
       it 'has display method' do
-        expect(game.methods.include? :display).to be true
+        expect(game.display.include? '*').to be true
       end
 
-      it 'has follow_follow method' do
+      it 'does not have has follow_follow method' do
         expect(game.methods.include? :follow_follow).to be false
-      end
-    end
-
-    context '#method_calls' do
-      it 'receives right method calls' do
-        allow(game).to receive(:word).and_return(true)
-        allow(game).to receive(:wrong_count).and_return(true)
-        allow(game).to receive(:right_guess).and_return(true)
-        allow(game).to receive(:wrong_entry).and_return(true)
-        allow(game).to receive(:total_lives).and_return(true)
-        allow(game).to receive(:display).and_return(true)
-        allow(game).to receive(:start).and_return('wibble')
-      end
-      it 'rejects wrong method calls' do
-        allow(game).to receive(:yusuf).and_return(false)
-        allow(game).to receive(:failure).and_return(false)
       end
     end
 
@@ -75,12 +58,6 @@ module Hangman
         allow(game).to receive(:gets).and_return('y')
         allow(game).to receive(:full_game).and_return('play_on')
         expect(game.wrong_count).to eq 0
-      end
-
-      it 'resets total_lives if play_on == y' do
-        allow(game).to receive(:gets).and_return('y')
-        allow(game).to receive(:full_game).and_return('play_on')
-        expect(game.total_lives).to eq 7
       end
 
       it 'resets total_lives if play_on == y' do
