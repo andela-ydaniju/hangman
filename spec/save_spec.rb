@@ -20,4 +20,28 @@ module Hangman
       allow(game).to receive(:wrong_entry).and_return(true)
     end
   end
+
+  context '#load_data' do
+    it 'should load yaml' do
+      yaml_text = <<-EOF
+                    A_NAME: ABC
+                    A_ALIAS: my_alias
+                  EOF
+      yaml = YAML.load(yaml_text)
+      filepath = 'whatever.yml'
+      YAML.stub(:load_data).with(filepath).and_return(yaml)
+    end
+  end
+
+  context '#save_data' do
+    it 'should save to yaml' do
+      yaml_text = <<-EOF
+                    A_NAME: ABC
+                    A_ALIAS: my_alias
+                  EOF
+      yaml = YAML.dump(yaml_text)
+      filepath = 'whatever.yml'
+      YAML.stub(:save_data).with(filepath).and_return(yaml)
+    end
+  end
 end
