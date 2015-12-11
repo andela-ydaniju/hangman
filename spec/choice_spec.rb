@@ -40,6 +40,10 @@ module Hangman
       it 'be an instance of Hangman::Choice' do
         expect(choice.class).to eq(Hangman::Choice)
       end
+
+      it 'be an instance of Hangman::Choice' do
+        expect(choice.file_path).to eq('5desk.txt')
+      end
     end
   end
 end
