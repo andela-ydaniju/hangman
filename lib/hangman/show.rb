@@ -53,6 +53,7 @@ module Hangman
       <<-HEREDOC
         DO YOU LIKE TO CONTINUE
         PRESS 'Y' TO CONTINUE
+        ENTER OTHER CHARACTERS TO QUIT
       HEREDOC
     end
 

@@ -34,6 +34,14 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 Hangman is currently in its first edition and is open-source. Feel free to contribute, clone or Fork
 
+1. Fork it by visiting - https://github.com/andela-ydaniju/hangman/fork
+
+2. Create your feature branch
+ 
+         $ git checkout -b new_feature2. Create your feature branch
+ 
+         $ git checkout -b new_feature
+
 Bug reports and pull requests are welcome on GitHub at https://github.com/andela-ydaniju/hangman. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
