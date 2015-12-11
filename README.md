@@ -38,19 +38,19 @@ Hangman is currently in its first edition and is open-source. Feel free to contr
 
 2. Create your feature branch
  
-         ```$ git checkout -b new_feature```
-    
- 3. Contribute to code
+  ```$ git checkout -b new_feature```
+
+3. Contribute to code
  
- 4. Commit changes made
+4. Commit changes made
  
-         ```$ git commit -a -m 'descriptive_message_about_change'```
+  ```$ git commit -a -m 'descriptive_message_about_change'```
      
- 5. Push to branch created
+5. Push to branch created
  
-         ```$ git push origin new_feature```
+  ```$ git push origin new_feature```
      
- 6. Then, create a new Pull Request and wait
+6. Then, create a new Pull Request and wait
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/andela-ydaniju/hangman. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
