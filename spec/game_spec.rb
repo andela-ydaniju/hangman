@@ -171,15 +171,8 @@ module Hangman
     end
 
     context '#play_loaded' do
-      it 'aborts if no data' do
-        yaml_text = <<-EOF
-                      A_NAME: ABC
-                      A_ALIAS: my_alias
-                    EOF
-        yaml = YAML.dump(yaml_text)
-        filepath = 'whatever.yml'
-        YAML.stub(:save_data).with(filepath).and_return(yaml)
-        allow(game).to receive(:condition_for_play).and_return(false)
+      it 'plays loaded game' do
+        allow(game).to receive(:play_loaded).and_return('game')
         expect(game.play_loaded.nil?).to eq false
       end
     end
