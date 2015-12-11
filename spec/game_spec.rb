@@ -166,13 +166,13 @@ module Hangman
     context '#start' do
       it 'show help message if response is wrong' do
         allow(game).to receive(:condition_for_play).and_return('play')
-        expect(game.start).to eq 'play'
+        expect(game.start).to eql 'play'
       end
     end
 
     context '#play_loaded' do
       it 'aborts if no data' do
-        allow(game).to receive(:condition_for_play).and_return('play')
+        allow(game).to receive(:condition_for_play).and_return(false)
         expect(game.play_loaded.nil?).to eq false
       end
     end
