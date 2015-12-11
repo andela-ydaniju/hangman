@@ -76,8 +76,9 @@ module Hangman
       it 'plays on until wrong_count equals total_lives' do
         expect(game.wrong_count).not_to eql game.total_lives
       end
+
       it 'returns either right or wrong entry methods' do
-        allow(play).to receive(:enter_guess).and_return('a')
+        allow(game).to receive(:gets).and_return('a')
         allow(game).to receive(:word).and_return('pad')
         allow(game).to receive(:condition_for_play).and_return('cool')
         expect(game.condition_for_play).to eq 'cool'
@@ -159,6 +160,20 @@ module Hangman
       it 'show help message if response is wrong' do
         allow(game).to receive(:full_game).and_return('game on!')
         expect(game.winner_decision).to eq 'game on!'
+      end
+    end
+
+    context '#start' do
+      it 'show help message if response is wrong' do
+        allow(game).to receive(:condition_for_play).and_return('play')
+        expect(game.start).to eql 'play'
+      end
+    end
+
+    context '#play_loaded' do
+      it 'plays loaded game' do
+        allow(game).to receive(:play_loaded).and_return('game')
+        expect(game.play_loaded.nil?).to eq false
       end
     end
   end
