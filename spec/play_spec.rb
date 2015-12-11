@@ -1,17 +1,9 @@
 require 'coveralls'
 Coveralls.wear!
 require 'spec_helper'
-# Test for Play class
 module Hangman
   hangman_play = Hangman::Play.new
   describe Play do
-    # before do
-    #   $stdin = StringIO.new('a')
-    # end
-
-    # after do
-    #   $stdin = STDIN
-    # end
     context 'enter_guess' do
       it 'returns a string' do
         allow(hangman_play).to receive(:gets).and_return('a')

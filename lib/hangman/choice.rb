@@ -1,10 +1,8 @@
-# Hangman module
 module Hangman
-  # This class serves words from file and tracks their display
   class Choice
     attr_accessor :file_path
     def initialize
-      @file_path ||= '5desk.txt'
+      @file_path = '5desk.txt'
       @word_list = read_file(@file_path)
     end
 

@@ -1,7 +1,6 @@
 require 'coveralls'
 Coveralls.wear!
 require 'spec_helper'
-# Test for Choice class
 module Hangman
   describe Choice do
     choice = Choice.new
@@ -30,11 +29,6 @@ module Hangman
         expect(picked_word.length).not_to eql 1
       end
     end
-    # context '#read_file' do
-    #   it 'returns an array' do
-    #     expect(choice.read_file('x').class).to eq(Array)
-    #   end
-    # end
 
     context '#initialize' do
       it 'be an instance of Hangman::Choice' do

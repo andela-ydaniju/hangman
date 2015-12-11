@@ -1,8 +1,4 @@
-require 'stringio'
-
-# Hangman module
 module Hangman
-  # This class follows gameplay logic
   class Play
     def show_word(picked_word, guess)
       display = ''

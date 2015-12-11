@@ -1,6 +1,4 @@
-require 'yaml'
 module Hangman
-  # Save and load class
   class Save
     attr_reader :word, :right_guess, :total_lives, :wrong_count
 
