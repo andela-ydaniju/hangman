@@ -70,6 +70,24 @@ module Hangman
         allow(game).to receive(:full_game).and_return('play_on')
         expect(game.right_guess).to eq ''
       end
+
+      it 'resets wrong_count if play_on == y' do
+        allow(game).to receive(:gets).and_return('y')
+        allow(game).to receive(:full_game).and_return('play_on')
+        expect(game.wrong_count).to eq 0
+      end
+
+      it 'resets total_lives if play_on == y' do
+        allow(game).to receive(:gets).and_return('y')
+        allow(game).to receive(:full_game).and_return('play_on')
+        expect(game.total_lives).to eq 7
+      end
+
+      it 'resets total_lives if play_on == y' do
+        allow(game).to receive(:gets).and_return('y')
+        allow(game).to receive(:full_game).and_return('play_on')
+        expect(game.total_lives).to eq 7
+      end
     end
 
     context '#condition_for_play' do
@@ -78,7 +96,7 @@ module Hangman
       end
 
       it 'returns either right or wrong entry methods' do
-        allow(game).to receive(:gets).and_return('a')
+        allow(STDIN).to receive(:gets).and_return('a')
         allow(game).to receive(:word).and_return('pad')
         allow(game).to receive(:condition_for_play).and_return('cool')
         expect(game.condition_for_play).to eq 'cool'
@@ -99,6 +117,13 @@ module Hangman
         game.instance_variable_set(:@word, 'greet')
         allow(game).to receive(:full_game).and_return('wibble')
         expect(game.wrong_entry('a')).to eq nil
+      end
+
+      it 'it reverts to full game if total_lives exhausted' do
+        game.instance_variable_set(:@word, 'greet')
+        allow(game).to receive(:full_game).and_return('wibble')
+        allow(game).to receive(:wrong_entry).and_return('a')
+        expect(game.wrong_entry('a').class).to be String
       end
 
       it 'cannot play wrong more than 7 times' do
@@ -174,6 +199,22 @@ module Hangman
       it 'plays loaded game' do
         allow(game).to receive(:play_loaded).and_return('game')
         expect(game.play_loaded.nil?).to eq false
+      end
+    end
+
+    context '#save_options' do
+      it 'show options for save or quit' do
+        allow(game).to receive(:gets).and_return('x')
+        allow(save).to receive(:save_data).and_return(true)
+        allow(game).to receive(:save_options).and_return('successful')
+        expect(game.save_options).to eq 'successful'
+      end
+
+      it 'show options for save or quit' do
+        allow(game).to receive(:gets).and_return('c')
+        allow(save).to receive(:save_data).and_return(true)
+        allow(game).to receive(:save_options).and_return('continue')
+        expect(game.save_options).to eq 'continue'
       end
     end
   end

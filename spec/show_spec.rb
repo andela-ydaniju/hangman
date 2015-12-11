@@ -55,6 +55,10 @@ module Hangman
       it 'should include GAME-OVER' do
         expect(show.hang.include? 'GAME-OVER').to be true
       end
+
+      it 'should include GAME-OVER' do
+        expect(show.hang.include? ':(').to be true
+      end
     end
 
     context '#continue' do
@@ -104,6 +108,16 @@ module Hangman
 
       it 'should include save' do
         expect(show.help_message.include? 'q - quit').to be true
+      end
+    end
+
+    context '#partial_help_message' do
+      it 'prints part of help message' do
+        expect(show.partial_help_message.class).to be String
+      end
+
+      it 'should include save' do
+        expect(show.partial_help_message.include? 'hangman').to be true
       end
     end
   end
