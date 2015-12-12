@@ -18,10 +18,8 @@ module Hangman
       @entry = gets.strip.downcase
 
       case @entry
-      when 'start' then start
-      when 's' then start
-      when 'load' then play_loaded
-      when 'l' then play_loaded
+      when 'start', 's' then start
+      when 'load', 'l' then play_loaded
       else
         abort @show.help_message
       end
