@@ -1,6 +1,6 @@
 # Hangman
 
-[![Code Climate](https://codeclimate.com/github/andela-ydaniju/hangman/badges/gpa.svg)](https://codeclimate.com/github/andela-ydaniju/hangman) [![Build Status](https://travis-ci.org/andela-ydaniju/hangman.svg?branch=master)](https://travis-ci.org/andela-ydaniju/hangman) [![Coverage Status](https://coveralls.io/repos/andela-ydaniju/hangman/badge.svg?branch=master&service=github)](https://coveralls.io/github/andela-ydaniju/hangman?branch=master)
+[![Code Climate](https://codeclimate.com/github/andela-ydaniju/hangman/badges/gpa.svg)](https://codeclimate.com/github/andela-ydaniju/hangman) [![Build Status](https://travis-ci.org/andela-ydaniju/hangman.svg?branch=master)](https://travis-ci.org/andela-ydaniju/hangman) [![Coverage Status](https://coveralls.io/repos/github/andela-ydaniju/hangman/badge.svg?branch=master)](https://coveralls.io/github/andela-ydaniju/hangman?branch=master)
 
 Hangman is a paper and pencil guessing game for two or more players. One player thinks of a word, phrase or sentence and the other tries to guess it by suggesting letters or numbers, within a certain number of guesses.
 
@@ -37,19 +37,19 @@ Hangman is currently in its first edition and is open-source. Feel free to contr
 1. Fork it by visiting - https://github.com/andela-ydaniju/hangman/fork
 
 2. Create your feature branch
- 
+
   ```$ git checkout -b new_feature```
 
 3. Contribute to code
- 
+
 4. Commit changes made
- 
+
   ```$ git commit -a -m 'descriptive_message_about_change'```
-     
+
 5. Push to branch created
- 
+
   ```$ git push origin new_feature```
-     
+
 6. Then, create a new Pull Request and wait
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/andela-ydaniju/hangman. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
@@ -58,4 +58,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/andela
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
