@@ -31,15 +31,15 @@ module Hangman
       end
 
       it 'has word method' do
-        expect(game.methods.include? :word).to be true
+        expect(game.methods.include?(:word)).to be true
       end
 
       it 'has display method' do
-        expect(game.display.include? '*').to be true
+        expect(game.display.include?('*')).to be true
       end
 
       it 'does not have has follow_follow method' do
-        expect(game.methods.include? :follow_follow).to be false
+        expect(game.methods.include?(:follow_follow)).to be false
       end
     end
 
@@ -48,7 +48,7 @@ module Hangman
         allow(game).to receive(:gets).and_return('n')
         expect(game.full_game).to include 'GOODBYE'
       end
-      
+
       it 'resets right_guess if play_on == y' do
         allow(game).to receive(:gets).and_return('y')
 
@@ -158,7 +158,7 @@ module Hangman
       it 'show help message if response is wrong' do
         allow(game).to receive(:gets).and_return('k')
         allow(game).to receive(:abort).and_return(show.help_message)
-        expect(game.pre_start.include? 'help').to be false
+        expect(game.pre_start.include?('help')).to be false
       end
     end
 

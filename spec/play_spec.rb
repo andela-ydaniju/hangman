@@ -29,7 +29,7 @@ module Hangman
       end
 
       it "returns '*' in place of a letter in a word" do
-        expect(showed_word.include? '*').to eql true
+        expect(showed_word.include?('*')).to eql true
       end
 
       it "has same length with 'pick_word'" do

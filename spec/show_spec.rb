@@ -10,7 +10,7 @@ module Hangman
       end
 
       it 'should include WELCOME' do
-        expect(show.begin.include? 'WELCOME').to be true
+        expect(show.begin.include?('WELCOME')).to be true
       end
     end
 
@@ -30,7 +30,7 @@ module Hangman
       end
 
       it 'should include TRY AGAIN' do
-        expect(show.show_wrong_entry.include? 'TRY AGAIN').to be true
+        expect(show.show_wrong_entry.include?('TRY AGAIN')).to be true
       end
     end
 
@@ -40,7 +40,7 @@ module Hangman
       end
 
       it 'should include WON' do
-        expect(show.show_win.include? 'WON').to be true
+        expect(show.show_win.include?('WON')).to be true
       end
     end
 
@@ -50,11 +50,11 @@ module Hangman
       end
 
       it 'should include GAME-OVER' do
-        expect(show.hang.include? 'GAME-OVER').to be true
+        expect(show.hang.include?('GAME-OVER')).to be true
       end
 
       it 'should include GAME-OVER' do
-        expect(show.hang.include? ':(').to be true
+        expect(show.hang.include?(':(')).to be true
       end
     end
 
@@ -64,7 +64,7 @@ module Hangman
       end
 
       it 'should include GAME-OVER' do
-        expect(show.continue.include? 'CONTINUE').to be true
+        expect(show.continue.include?('CONTINUE')).to be true
       end
     end
 
@@ -74,7 +74,7 @@ module Hangman
       end
 
       it 'should include GOODBYE' do
-        expect(show.end.include? 'GOODBYE').to be true
+        expect(show.end.include?('GOODBYE')).to be true
       end
     end
 
@@ -84,7 +84,7 @@ module Hangman
       end
 
       it 'should include SAVE' do
-        expect(show.save_or_quit.include? 'SAVE').to be true
+        expect(show.save_or_quit.include?('SAVE')).to be true
       end
     end
 
@@ -94,7 +94,7 @@ module Hangman
       end
 
       it "should include 'NO SAVED GAME'" do
-        expect(show.wrong_load.include? 'NO SAVED GAME').to be true
+        expect(show.wrong_load.include?('NO SAVED GAME')).to be true
       end
     end
 
@@ -104,7 +104,7 @@ module Hangman
       end
 
       it 'should include save' do
-        expect(show.help_message.include? 'q - quit').to be true
+        expect(show.help_message.include?('q - quit')).to be true
       end
     end
 
@@ -114,7 +114,7 @@ module Hangman
       end
 
       it 'should include save' do
-        expect(show.partial_help_message.include? 'hangman').to be true
+        expect(show.partial_help_message.include?('hangman')).to be true
       end
     end
   end
