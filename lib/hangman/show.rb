@@ -57,9 +57,7 @@ module Hangman
     end
 
     def end
-      <<-HEREDOC
-        GOODBYE!!
-      HEREDOC
+      'GOODBYE!!'
     end
 
     def wrong_load

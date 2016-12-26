@@ -20,7 +20,7 @@ module Hangman
       end
 
       it 'should include GREAT' do
-        expect(show.show_right_entry.include? 'GREAT').to be true
+        expect(show.show_right_entry.include?('GREAT')).to be true
       end
     end
 

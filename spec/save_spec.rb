@@ -28,7 +28,7 @@ module Hangman
                   EOF
       yaml = YAML.load(yaml_text)
       filepath = 'whatever.yml'
-      YAML.stub(:load_data).with(filepath).and_return(yaml)
+      allow(Save).to receive(:load_data).and_return(yaml)
     end
   end
 
@@ -40,7 +40,7 @@ module Hangman
                   EOF
       yaml = YAML.dump(yaml_text)
       filepath = 'whatever.yml'
-      YAML.stub(:save_data).with(filepath).and_return(yaml)
+      allow(Save).to receive(:load_data).and_return(yaml)
     end
   end
 end

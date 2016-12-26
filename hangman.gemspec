@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ['andela-ydaniju']
   spec.email         = ['yusuf.daniju@andela.com']
 
-  spec.summary       = %q{Hangman game allows you guess the letters of a word. You have seven chances!}
+  spec.summary       = 'Hangman game allows you guess the letters of a word. You have seven chances!'
   # spec.description   = %q{Hangman game allows you guess the letters of a word. You have seven chances!}
-  spec.homepage      = "https://github.com/andela-ydaniju/hangman"
+  spec.homepage      = 'https://github.com/andela-ydaniju/hangman'
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
@@ -19,10 +19,10 @@ Gem::Specification.new do |spec|
   if spec.respond_to?(:metadata)
     spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
   else
-    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
+    raise 'RubyGems 2.0 or newer is required to protect against public gem pushes.'
   end
 
-  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
+  spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
   spec.bindir        = 'bin'

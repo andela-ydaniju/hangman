@@ -6,9 +6,13 @@ module Hangman
       @word_list = read_file(@file_path)
     end
 
+    private
+
     def read_file(dictionary)
       File.readlines(dictionary)
     end
+
+    public
 
     def pick_word
       loop do

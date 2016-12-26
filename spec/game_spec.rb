@@ -5,6 +5,7 @@ module Hangman
   describe Game do
     let(:play) { Hangman::Play.new }
     let(:game) { Hangman::Game.new }
+    let(:choice) { Hangman::Choice.new }
     let(:show) { Hangman::Show.new }
     let(:save) { Hangman::Save.new(game) }
 
@@ -45,24 +46,24 @@ module Hangman
     context '#full_game' do
       it 'prints goodbye when play_on != y' do
         allow(game).to receive(:gets).and_return('n')
-        allow(game).to receive(:full_game).and_return('GOODBYE')
-        expect(game.full_game).to eq 'GOODBYE'
+        expect(game.full_game).to include 'GOODBYE'
       end
+      
       it 'resets right_guess if play_on == y' do
         allow(game).to receive(:gets).and_return('y')
-        allow(game).to receive(:full_game).and_return('play_on')
+
         expect(game.right_guess).to eq ''
       end
 
       it 'resets wrong_count if play_on == y' do
         allow(game).to receive(:gets).and_return('y')
-        allow(game).to receive(:full_game).and_return('play_on')
+
         expect(game.wrong_count).to eq 0
       end
 
       it 'resets total_lives if play_on == y' do
         allow(game).to receive(:gets).and_return('y')
-        allow(game).to receive(:full_game).and_return('play_on')
+
         expect(game.total_lives).to eq 7
       end
     end
@@ -73,9 +74,12 @@ module Hangman
       end
 
       it 'returns either right or wrong entry methods' do
-        allow(STDIN).to receive(:gets).and_return('a')
+        allow(game).to receive(:wrong_count).and_return(7)
         allow(game).to receive(:word).and_return('pad')
+        allow(play).to receive(:enter_guess).and_return(' ')
+        allow(play).to receive(:gets).and_return(:enter_guess)
         allow(game).to receive(:condition_for_play).and_return('cool')
+
         expect(game.condition_for_play).to eq 'cool'
       end
     end
@@ -182,14 +186,12 @@ module Hangman
     context '#save_options' do
       it 'show options for save or quit' do
         allow(game).to receive(:gets).and_return('x')
-        allow(save).to receive(:save_data).and_return(true)
-        allow(game).to receive(:save_options).and_return('successful')
-        expect(game.save_options).to eq 'successful'
+
+        expect(game.save_options).to include 'successful'
       end
 
       it 'show options for save or quit' do
         allow(game).to receive(:gets).and_return('c')
-        allow(save).to receive(:save_data).and_return(true)
         allow(game).to receive(:save_options).and_return('continue')
         expect(game.save_options).to eq 'continue'
       end

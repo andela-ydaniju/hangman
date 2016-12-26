@@ -12,9 +12,7 @@ module Hangman
       serialize_data = YAML.dump(play_data)
       data = File.open('gamelog.yml', 'w') { |line| line.write(serialize_data) }
       if data
-        puts 'Game successfully saved'
-        sleep 3
-        exit
+        return 'Game successfully saved'
       end
     end
 

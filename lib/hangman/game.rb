@@ -46,7 +46,7 @@ module Hangman
     def full_game
       puts @show.continue
       play_on = gets.downcase.strip
-      abort @show.end if play_on != 'y'
+      return @show.end if play_on != 'y'
       @word = Hangman::Choice.new.pick_word
       @wrong_count = 0
       @total_lives = 7
@@ -60,7 +60,7 @@ module Hangman
       while @wrong_count < @total_lives
         print "You have #{@total_lives - @wrong_count} chances left. "
         char = @play.enter_guess
-        save_options if char.match(/[^a-zA-Z0-9_]/)
+        save_options if char =~ /[^a-zA-Z0-9_]/
         if @word.include? char
           right_entry char
         else
